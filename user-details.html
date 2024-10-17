@@ -1,17 +1,110 @@
+<!-- user-details.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ace - User Details</title>
+    <title>User Details - Ace</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        // JavaScript to handle form submission and display entered user details
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Get the form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const aadhaar = document.getElementById('aadhaar').value;
+            const age = document.getElementById('age').value;
+            const license = document.getElementById('license').value;
+
+            // Display the entered values below the form
+            document.getElementById('display-info').innerHTML = `
+                <h3 class="text-xl font-bold mt-6">Entered Details:</h3>
+                <p><strong>Full Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone Number:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Aadhaar Number:</strong> ${aadhaar}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>License Number:</strong> ${license}</p>
+            `;
+        }
+    </script>
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-blue-500 p-4 text-white">
-        <a href="dashboard.html">Back to Dashboard</a>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto">
+            <ul class="flex justify-around text-white">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="how-to-use.html">How to Use</a></li>
+                <li><a href="camera-feed.html">Camera Feed</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="rewards.html">Rewards</a></li>
+                <li><a href="user-details.html">User Details</a></li>
+                <li><a href="report-form.html">Report</a></li>
+            </ul>
+        </div>
     </nav>
-    <section class="mt-10 max-w-md mx-auto bg-white p-8 rounded-lg shadow">
-        <h2 class="text-2xl font-bold mb-6 text-center">User Details</h2>
-        <form>
+
+    <!-- User Details Section -->
+    <section class="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold mb-6 text-center">Your Profile</h2>
+        
+        <form method="POST" onsubmit="handleSubmit(event)">
+            <!-- Full Name -->
             <div class="mb-4">
-               
+                <label for="name" class="block text-gray-700 font-semibold">Full Name</label>
+                <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-semibold">Email</label>
+                <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700 font-semibold">Phone Number</label>
+                <input type="text" id="phone" name="phone" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700 font-semibold">Address</label>
+                <input type="text" id="address" name="address" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your address" required>
+            </div>
+
+            <!-- Aadhaar Card Number -->
+            <div class="mb-4">
+                <label for="aadhaar" class="block text-gray-700 font-semibold">Aadhaar Number</label>
+                <input type="text" id="aadhaar" name="aadhaar" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your Aadhaar number" required>
+            </div>
+
+            <!-- Age -->
+            <div class="mb-4">
+                <label for="age" class="block text-gray-700 font-semibold">Age</label>
+                <input type="number" id="age" name="age" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your age" required>
+            </div>
+
+            <!-- License Number -->
+            <div class="mb-4">
+                <label for="license" class="block text-gray-700 font-semibold">License Number</label>
+                <input type="text" id="license" name="license" class="w-full p-2 border border-gray-300 rounded mt-2" placeholder="Enter your license number" required>
+            </div>
+
+            <!-- Save Button -->
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save Details</button>
+        </form>
+
+        <!-- Section to display entered information -->
+        <div id="display-info" class="mt-6 text-gray-700"></div>
+    </section>
+
+</body>
+</html>
